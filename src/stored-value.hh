@@ -986,6 +986,7 @@ public:
             }
             if (cas) {
                 /* item has expired and cas value provided. Deny ! */
+                abort();
                 return NOT_FOUND;
             }
         }
@@ -1026,6 +1027,7 @@ public:
                 v->setNRUValue(nru);
             }
         } else if (cas != 0) {
+            abort();
             rv = NOT_FOUND;
         } else {
             if (!hasMetaData) {
